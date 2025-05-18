@@ -4,7 +4,7 @@ from pages.sauce_page import SauceDemoPage
 import re
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=False, slow_mo=2000)
+    browser = p.chromium.launch(headless=True, slow_mo=2000)
     page = browser.new_page()
     page.goto("https://www.saucedemo.com/")
     print(page.title())
