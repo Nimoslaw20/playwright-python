@@ -1,0 +1,96 @@
+To create a virtual environment on a Mac and install Python Playwright, follow these steps in your terminal:
+
+---
+
+### ✅ **1. Open Terminal**
+
+---
+
+### ✅ **2. Navigate to your project directory**
+
+```bash
+cd /path/to/your/project
+```
+
+---
+
+### ✅ **3. Create a virtual environment**
+
+```bash
+python3 -m venv venv
+```
+
+This creates a folder named `venv` containing your virtual environment.
+
+---
+
+### ✅ **4. Activate the virtual environment**
+
+```bash
+source venv/bin/activate
+```
+
+You should see `(venv)` appear in your terminal prompt.
+
+---
+
+### ✅ **5. Upgrade pip (recommended)**
+
+```bash
+pip install --upgrade pip
+```
+
+---
+
+### ✅ **6. Install Playwright**
+
+```bash
+pip install playwright
+```
+
+---
+
+### ✅ **7. Install Playwright browser binaries**
+
+```bash
+playwright install
+```
+
+This will download Chromium, Firefox, and WebKit needed to run tests.
+
+---
+
+### ✅ **8. (Optional) Save dependencies**
+
+```bash
+pip freeze > requirements.txt
+```
+
+---
+
+### ✅ **9. Run a basic test (optional)**
+
+Create a file `test_script.py`:
+
+```python
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch()
+    page = browser.new_page()
+    page.goto("https://example.com")
+    print(page.title())
+    browser.close()
+```
+
+Then run it:
+
+```bash
+python tests/app.py
+
+python -m tests.app  
+```
+
+---
+
+Let me know if you'd like to set up Pytest or run Playwright tests in headless mode.
